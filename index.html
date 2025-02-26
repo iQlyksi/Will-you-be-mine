@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Invitation</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #ffebf0;
+        }
+        h1 {
+            color: #ff4081;
+        }
+        .container {
+            position: relative;
+            text-align: center;
+        }
+        .btn {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .yes {
+            background-color: #66ff99;
+        }
+        .no {
+            background-color: #ff6666;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="question">Would you like to be mine? 💕</h1>
+    <div class="container">
+        <button class="btn yes" id="yesButton">Yes</button>
+        <button class="btn no" onmouseover="moveButton(this)">No</button>
+    </div>
+
+    <script>
+        document.getElementById("yesButton").addEventListener("click", function() {
+            document.getElementById("question").innerText = "Yay! You're mine now! ❤️";
+            this.style.display = "none";
+            document.querySelector(".no").style.display = "none";
+        });
+        
+        function moveButton(button) {
+            let x = Math.random() * (window.innerWidth - 50);
+            let y = Math.random() * (window.innerHeight - 25);
+            button.style.left = `${x}px`;
+            button.style.top = `${y}px`;
+        }
+    </script>
+</body>
+</html>
